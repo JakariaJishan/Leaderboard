@@ -1,7 +1,5 @@
 const path = require('path');
-/* eslint-disable */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-/* eslint-enable */
 module.exports = {
   entry: './src/index.js',
   devServer: {
@@ -29,8 +27,5 @@ module.exports = {
     ],
   },
 
-  //   optimization: {
-  //     runtimeChunk: "single",
-  //   },
   mode: 'development',
 };
