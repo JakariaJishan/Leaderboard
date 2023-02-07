@@ -1,5 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-unresolved
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// eslint-disable-line import/no-unresolved
 module.exports = {
   entry: './src/index.js',
   devServer: {
