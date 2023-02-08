@@ -13,22 +13,18 @@
         <div class="container">
             <div class="board-title">
                 <h2>Recent scrores</h2>
-                <button>Refresh</button>
+                <button id="refresh-btn">Refresh</button>
             </div>
-            <div class="leaderboard">
-                <p>name: 100</p>
-                <p>name: 100</p>
-                <p>name: 100</p>
-                <p>name: 100</p>
-                <p>name: 100</p>
+            <div class="leaderboard" id="leaderboard">
+                <!-- leaderboard load -->
             </div>
         </div>
         <form action="">
             <div class="title">
                 <h2>Add your score</h2>
             </div>
-            <input type="text" placeholder="Your name">
-            <input type="text" placeholder="Your score">
+            <input type="text" placeholder="Your name" id="user">
+            <input type="number" placeholder="Your score" id="score">
             <button class="submit-btn">Submit</button>
         </form>
     </main>
