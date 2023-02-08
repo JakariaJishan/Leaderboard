@@ -116,7 +116,37 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nfunction component() {\n\n}\n\ndocument.body.appendChild(component());\n\n//# sourceURL=webpack://webpack-practise/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_load_data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/load-data.js */ \"./src/modules/load-data.js\");\n/* harmony import */ var _modules_submit_data_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/submit-data.js */ \"./src/modules/submit-data.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n\nconst refrestBtn = document.getElementById('refresh-btn');\nrefrestBtn.addEventListener('click', _modules_load_data_js__WEBPACK_IMPORTED_MODULE_0__.refreshHandler);\n\nconst form = document.querySelector('form');\nform.addEventListener('submit', _modules_submit_data_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\nwindow.onload = () => {\n  (0,_modules_load_data_js__WEBPACK_IMPORTED_MODULE_0__.loadLeaderboard)();\n};\n\n\n//# sourceURL=webpack://webpack-practise/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/api.js":
+/*!****************************!*\
+  !*** ./src/modules/api.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"fetchApi\": () => (/* binding */ fetchApi),\n/* harmony export */   \"postApi\": () => (/* binding */ postApi)\n/* harmony export */ });\nconst url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/IXP2n6rsgRhHNjYfCRCt/scores';\n\nconst fetchApi = async () => {\n  const response = await fetch(url);\n  const data = await response.json();\n  return data.result;\n};\n\nconst postApi = async (user, score) => {\n  const leaderObj = {\n    user,\n    score,\n  };\n  const response = await fetch(url, {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify(leaderObj),\n  });\n  const data = await response.json();\n  return data.result;\n};\n\n\n//# sourceURL=webpack://webpack-practise/./src/modules/api.js?");
+
+/***/ }),
+
+/***/ "./src/modules/load-data.js":
+/*!**********************************!*\
+  !*** ./src/modules/load-data.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"loadLeaderboard\": () => (/* binding */ loadLeaderboard),\n/* harmony export */   \"refreshHandler\": () => (/* binding */ refreshHandler)\n/* harmony export */ });\n/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.js */ \"./src/modules/api.js\");\n\n\nconst loadLeaderboard = async () => {\n  const data = await (0,_api_js__WEBPACK_IMPORTED_MODULE_0__.fetchApi)();\n  const leaderboard = document.getElementById('leaderboard');\n  leaderboard.innerHTML = '';\n  for (let i = 0; i < data.length; i += 1) {\n    leaderboard.innerHTML += `<p>${data[i].user} : ${data[i].score}</p>`;\n  }\n};\n\nconst refreshHandler = (e) => {\n  e.preventDefault();\n  loadLeaderboard();\n};\n\n\n//# sourceURL=webpack://webpack-practise/./src/modules/load-data.js?");
+
+/***/ }),
+
+/***/ "./src/modules/submit-data.js":
+/*!************************************!*\
+  !*** ./src/modules/submit-data.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.js */ \"./src/modules/api.js\");\n/* harmony import */ var _load_data_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./load-data.js */ \"./src/modules/load-data.js\");\n\n\n\nconst submitHandler = async (e) => {\n  e.preventDefault();\n  const form = document.querySelector('form');\n  const user = document.getElementById('user').value;\n  const score = document.getElementById('score').value;\n  if (score && user) {\n    await (0,_api_js__WEBPACK_IMPORTED_MODULE_0__.postApi)(user, score);\n  }\n  form.reset();\n  (0,_load_data_js__WEBPACK_IMPORTED_MODULE_1__.loadLeaderboard)();\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (submitHandler);\n\n\n//# sourceURL=webpack://webpack-practise/./src/modules/submit-data.js?");
 
 /***/ })
 

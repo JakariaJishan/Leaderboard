@@ -1,7 +1,13 @@
+import { loadLeaderboard, refreshHandler } from './modules/load-data.js';
+import submitHandler from './modules/submit-data.js';
 import './style.css';
 
-function component() {
+const refrestBtn = document.getElementById('refresh-btn');
+refrestBtn.addEventListener('click', refreshHandler);
 
-}
+const form = document.querySelector('form');
+form.addEventListener('submit', submitHandler);
 
-document.body.appendChild(component());
+window.onload = () => {
+  loadLeaderboard();
+};
