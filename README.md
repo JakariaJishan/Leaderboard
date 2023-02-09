@@ -59,7 +59,7 @@ The leaderboard website displays scores submitted by different players. It also 
 
 You can checkout the running website here:
 
-- [Under construction](https://jakariajishan.github.io/Leaderboard/dist/)
+- [Live Link](https://jakariajishan.github.io/Leaderboard/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
