@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <img src="leaderboard.png" alt="logo" width="140"  height="auto" />
+  <img src="project-img.png" alt="logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>Leaderboard</b></h3>
@@ -59,7 +59,7 @@ The leaderboard website displays scores submitted by different players. It also 
 
 You can checkout the running website here:
 
-- [Under construction](link)
+- [Under construction](https://jakariajishan.github.io/Leaderboard/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
