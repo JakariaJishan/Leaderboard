@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <img src="project-img.png" alt="logo" width="80%"  height="80%" />
+  <img src="project-img.png" alt="logo" width="80%"  height="100%" />
   <br/>
 
   <h3><b>Leaderboard</b></h3>
